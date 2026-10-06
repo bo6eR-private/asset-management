@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Добавление сотрудника — Учёт имущества</title>
+  </head>
+  <body>
+    <div class="d-flex">
+      <aside class="sidebar bg-dark position-fixed">
+        <div class="p-3">
+          <h4 class="text-white">Учёт имущества</h4>
+          <small class="text-secondary"> Панель администратора </small>
+        </div>
+        <nav class="nav flex-column px-2">
+          <a href="../../../index.html" class="nav-link"> Панель управления </a>
+          <a href="../assets/assets.html" class="nav-link">
+            Имущество
+          </a>
+          <a href="../employees/employees.html" class="nav-link active">
+            Сотрудники
+          </a>
+          <a href="../issues/issues.html" class="nav-link"> Выдачи </a>
+          <a href="../reports/reports.html" class="nav-link"> Отчёты </a>
+        </nav>
+      </aside>
+      <main class="main-content flex-grow-1">
+        <div class="mb-4">
+          <a href="employees.html" class="text-decoration-none">
+            ← Назад к сотрудникам
+          </a>
+          <h1 class="mt-3">Добавление сотрудника</h1>
+          <p class="text-muted">Добавление нового сотрудника в систему</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-8">
+            <div class="card shadow-sm">
+              <div class="card-header">Основная информация</div>
+              <div class="card-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="fullName" class="form-label"> ФИО </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="fullName"
+                      placeholder="Например, Иванов Иван Иванович"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="position" class="form-label"> Должность </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="position"
+                      placeholder="Например, Программист"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="department" class="form-label">
+                      Подразделение
+                    </label>
+                    <select class="form-select" id="department" required>
+                      <option value="" selected disabled>
+                        Выберите подразделение
+                      </option>
+                      <option value="it">IT-отдел</option>
+                      <option value="accounting">Бухгалтерия</option>
+                      <option value="hr">Отдел кадров</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="phone" class="form-label"> Телефон </label>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      id="phone"
+                      placeholder="+7 900 000-00-00"
+                      required
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label for="email" class="form-label"> Email </label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      placeholder="employee@example.com"
+                      required
+                    />
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                      Добавить сотрудника
+                    </button>
+                    <a href="employees.html" class="btn btn-outline-secondary">
+                      Отмена
+                    </a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow-sm">
+              <div class="card-header">После добавления</div>
+              <div class="card-body">
+                <p class="mb-3">
+                  Новый сотрудник будет добавлен в список сотрудников
+                  организации.
+                </p>
+                <div class="mb-3">
+                  <div class="text-muted mb-1">Имущество на руках</div>
+                  <div>0</div>
+                </div>
+                <div>
+                  <div class="text-muted mb-1">Ответственный</div>
+                  <div>
+                    Сотрудник будет доступен для оформления выдачи имущества.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="../../js/main.js"></script>
+  </body>
+</html>

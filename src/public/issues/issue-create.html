@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Оформление выдачи — Учёт имущества</title>
+  </head>
+  <body>
+    <div class="d-flex">
+      <aside class="sidebar bg-dark position-fixed">
+        <div class="p-3">
+          <h4 class="text-white">Учёт имущества</h4>
+          <small class="text-secondary"> Панель администратора </small>
+        </div>
+        <nav class="nav flex-column px-2">
+          <a href="../../../index.html" class="nav-link active"> Панель управления </a>
+          <a href="../assets/assets.html" class="nav-link">
+            Имущество
+          </a>
+          <a href="../employees/employees.html" class="nav-link">
+            Сотрудники
+          </a>
+          <a href="../issues/issues.html" class="nav-link active"> Выдачи </a>
+          <a href="../reports/reports.html" class="nav-link"> Отчёты </a>
+        </nav>
+      </aside>
+      <main class="main-content flex-grow-1">
+        <div class="mb-4">
+          <a href="issues.html" class="text-decoration-none">
+            ← Назад к выдачам
+          </a>
+          <h1 class="mt-3">Оформление выдачи</h1>
+          <p class="text-muted">Передача материальной ценности сотруднику</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="card shadow-sm">
+              <div class="card-header">Данные выдачи</div>
+              <div class="card-body">
+                <form>
+                  <div class="mb-3">
+                    <label class="form-label"> Сотрудник </label>
+                    <select class="form-select">
+                      <option selected>Выберите сотрудника</option>
+                      <option>Иванов Иван Иванович</option>
+                      <option>Петров Пётр Петрович</option>
+                      <option>Сидоров Алексей Сергеевич</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label"> Материальная ценность </label>
+                    <select class="form-select">
+                      <option selected>Выберите имущество</option>
+                      <option>INV-0001 — Lenovo ThinkPad T14</option>
+                      <option>INV-0006 — HP ProBook</option>
+                      <option>INV-0007 — Logitech MX Keys</option>
+                    </select>
+                    <div class="form-text">
+                      Отображается только доступное имущество.
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label"> Дата выдачи </label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        value="2026-09-27"
+                      />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">
+                        Планируемая дата возврата
+                      </label>
+                      <input type="date" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <label class="form-label"> Подробное состояние </label>
+                    <textarea
+                      class="form-control"
+                      rows="4"
+                      placeholder="Дополнительная информация"
+                    >
+                    </textarea>
+                  </div>
+                  <div class="mb-4">
+                    <label class="form-label"> Комментарий </label>
+                    <textarea
+                      class="form-control"
+                      rows="4"
+                      placeholder="Дополнительная информация"
+                    >
+                    </textarea>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                      Оформить выдачу
+                    </button>
+                    <a href="issues.html" class="btn btn-outline-secondary">
+                      Отмена
+                    </a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card shadow-sm">
+              <div class="card-header">Информация</div>
+              <div class="card-body">
+                <p>После оформления выдачи:</p>
+                <ul>
+                  <li>имущество получает статус «Выдано»;</li>
+                  <li>имущество закрепляется за сотрудником;</li>
+                  <li>операция добавляется в историю;</li>
+                  <li>создаётся запись о выдаче.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="../../js/main.js"></script>
+  </body>
+</html>

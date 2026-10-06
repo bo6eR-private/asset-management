@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Имущество</title>
+  </head>
+  <body>
+    <div class="d-flex">
+      <aside class="sidebar bg-dark position-fixed">
+        <div class="p-3">
+          <h4 class="text-white">Учёт имущества</h4>
+          <small class="text-secondary"> Панель администратора </small>
+        </div>
+        <nav class="nav flex-column px-2">
+          <a href="../../../index.html" class="nav-link"> Панель управления </a>
+          <a href="../assets/assets.html" class="nav-link active">
+            Имущество
+          </a>
+          <a href="../employees/employees.html" class="nav-link">
+            Сотрудники
+          </a>
+          <a href="../issues/issues.html" class="nav-link"> Выдачи </a>
+          <a href="../reports/reports.html" class="nav-link"> Отчёты </a>
+        </nav>
+      </aside>
+      <main class="main-content flex-grow-1">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h1>Материальные ценности</h1>
+            <p class="text-muted">Управление имуществом</p>
+          </div>
+          <a href="asset-create.html" class="btn btn-primary">
+            + Добавить имущество
+          </a>
+        </div>
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-5">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Поиск по названию или инвентарному номеру"
+                />
+              </div>
+              <div class="col-md-3">
+                <select class="form-select">
+                  <option selected>Все категории</option>
+                  <option>Компьютерная техника</option>
+                  <option>Мебель</option>
+                  <option>Оборудование</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <select class="form-select">
+                  <option selected>Все статусы</option>
+                  <option>На складе</option>
+                  <option>Выдано</option>
+                  <option>На ремонте</option>
+                  <option>Списано</option>
+                </select>
+              </div>
+              <div class="col-md-1">
+                <button class="btn btn-primary w-100">Найти</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <table class="table table-hover align-middle">
+              <thead>
+                <tr>
+                  <th>Инв. номер</th>
+                  <th>Название</th>
+                  <th>Категория</th>
+                  <th>Состояние</th>
+                  <th>Статус</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>INV-0001</td>
+                  <td>Lenovo ThinkPad T14</td>
+                  <td>Компьютерная техника</td>
+                  <td>Исправно</td>
+                  <td>
+                    <span class="badge text-bg-success"> На складе </span>
+                  </td>
+                  <td>
+                    <a href="asset.html" class="btn btn-sm btn-outline-primary">
+                      Открыть
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>INV-0002</td>
+                  <td>Dell UltraSharp</td>
+                  <td>Компьютерная техника</td>
+                  <td>Исправно</td>
+                  <td>
+                    <span class="badge text-bg-primary"> Выдано </span>
+                  </td>
+                  <td>
+                    <a href="asset.html" class="btn btn-sm btn-outline-primary">
+                      Открыть
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>INV-0003</td>
+                  <td>Офисное кресло</td>
+                  <td>Мебель</td>
+                  <td>Требует ремонта</td>
+                  <td>
+                    <span class="badge text-bg-warning"> На ремонте </span>
+                  </td>
+                  <td>
+                    <a href="asset.html" class="btn btn-sm btn-outline-primary">
+                      Открыть
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="../../js/main.js"></script>
+  </body>
+</html>

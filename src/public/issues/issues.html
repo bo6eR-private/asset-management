@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Выдачи — Учёт имущества</title>
+  </head>
+  <body>
+    <div class="d-flex">
+      <aside class="sidebar bg-dark position-fixed">
+        <div class="p-3">
+          <h4 class="text-white">Учёт имущества</h4>
+          <small class="text-secondary"> Панель администратора </small>
+        </div>
+        <nav class="nav flex-column px-2">
+          <a href="../../../index.html" class="nav-link"> Панель управления </a>
+          <a href="../assets/assets.html" class="nav-link">
+            Имущество
+          </a>
+          <a href="../employees/employees.html" class="nav-link">
+            Сотрудники
+          </a>
+          <a href="../issues/issues.html" class="nav-link active"> Выдачи </a>
+          <a href="../reports/reports.html" class="nav-link"> Отчёты </a>
+        </nav>
+      </aside>
+      <main class="main-content flex-grow-1">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h1>Выдачи имущества</h1>
+            <p class="text-muted mb-0">
+              История и управление выдачей материальных ценностей
+            </p>
+          </div>
+          <a href="issue-create.html" class="btn btn-primary">
+            + Оформить выдачу
+          </a>
+        </div>
+        <div class="card shadow-sm mb-4">
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-3">
+                <label class="form-label"> Сотрудник </label>
+                <select class="form-select">
+                  <option selected>Все сотрудники</option>
+                  <option>Иванов И.И.</option>
+                  <option>Петров П.П.</option>
+                  <option>Сидоров А.С.</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label"> Статус </label>
+                <select class="form-select">
+                  <option selected>Все</option>
+                  <option>Выдано</option>
+                  <option>Возвращено</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+                <label class="form-label"> С даты </label>
+                <input type="date" class="form-control" />
+              </div>
+              <div class="col-md-2">
+                <label class="form-label"> По дату </label>
+                <input type="date" class="form-control" />
+              </div>
+              <div class="col-md-2 d-flex align-items-end">
+                <button class="btn btn-primary w-100">Применить</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Дата выдачи</th>
+                    <th>Сотрудник</th>
+                    <th>Имущество</th>
+                    <th>Плановый возврат</th>
+                    <th>Фактический возврат</th>
+                    <th>Статус</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#0001</td>
+                    <td>10.06.2025</td>
+                    <td>Иванов И.И.</td>
+                    <td>Dell UltraSharp</td>
+                    <td>10.06.2026</td>
+                    <td>—</td>
+                    <td>
+                      <span class="badge text-bg-primary"> Выдано </span>
+                    </td>
+                    <td>
+                      <a
+                        href="return-create.html"
+                        class="btn btn-sm btn-outline-success"
+                      >
+                        Возврат
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#0002</td>
+                    <td>12.06.2025</td>
+                    <td>Петров П.П.</td>
+                    <td>HP ProBook</td>
+                    <td>12.06.2026</td>
+                    <td>20.09.2026</td>
+                    <td>
+                      <span class="badge text-bg-success"> Возвращено </span>
+                    </td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-secondary">
+                        Просмотр
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#0003</td>
+                    <td>25.09.2026</td>
+                    <td>Сидоров А.С.</td>
+                    <td>Logitech MX Keys</td>
+                    <td>25.09.2027</td>
+                    <td>—</td>
+                    <td>
+                      <span class="badge text-bg-primary"> Выдано </span>
+                    </td>
+                    <td>
+                      <a
+                        href="return-create.html"
+                        class="btn btn-sm btn-outline-success"
+                      >
+                        Возврат
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="../../js/main.js"></script>
+  </body>
+</html>

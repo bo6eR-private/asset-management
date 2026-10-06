@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/css/style.css">
+    <title>Учёт материальных ценностей</title>
+  </head>
+  <body>
+    <div class="d-flex">
+      <aside class="sidebar bg-dark position-fixed">
+        <div class="p-3">
+          <h4 class="text-white">Учёт имущества</h4>
+          <small class="text-secondary"> Панель администратора </small>
+        </div>
+        <nav class="nav flex-column px-2">
+          <a href="index.html" class="nav-link active"> Панель управления </a>
+          <a href="src/public/assets/assets.html" class="nav-link">
+            Имущество
+          </a>
+          <a href="src/public/employees/employees.html" class="nav-link">
+            Сотрудники
+          </a>
+          <a href="src/public/issues/issues.html" class="nav-link"> Выдачи </a>
+          <a href="src/public/reports/reports.html" class="nav-link"> Отчёты </a>
+        </nav>
+      </aside>
+      <main class="main-content flex-grow-1">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h1>Панель управления</h1>
+            <p class="text-muted">Система учёта материальных ценностей</p>
+          </div>
+          <button class="btn btn-outline-secondary">Администратор</button>
+        </div>
+        <div class="row g-4 mb-4">
+          <div class="col-md-3">
+            <div class="card stat-card">
+              <div class="card-body">
+                <h6 class="text-muted">Всего имущества</h6>
+                <h2>248</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card stat-card">
+              <div class="card-body">
+                <h6 class="text-muted">На складе</h6>
+                <h2>127</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card stat-card">
+              <div class="card-body">
+                <h6 class="text-muted">Выдано</h6>
+                <h2>98</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card stat-card">
+              <div class="card-body">
+                <h6 class="text-muted">На ремонте</h6>
+                <h2>23</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Последние операции</div>
+          <div class="card-body">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Дата</th>
+                  <th>Операция</th>
+                  <th>Сотрудник</th>
+                  <th>Имущество</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>27.09.2026</td>
+                  <td>
+                    <span class="badge text-bg-primary"> Выдача </span>
+                  </td>
+                  <td>Иванов И.И.</td>
+                  <td>Ноутбук Lenovo ThinkPad</td>
+                </tr>
+                <tr>
+                  <td>26.09.2026</td>
+                  <td>
+                    <span class="badge text-bg-success"> Возврат </span>
+                  </td>
+                  <td>Петров П.П.</td>
+                  <td>Монитор Dell</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

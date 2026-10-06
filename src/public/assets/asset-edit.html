@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Изменение имущества — Учёт имущества</title>
+  </head>
+  <body>
+    <div class="d-flex">
+      <aside class="sidebar bg-dark position-fixed">
+        <div class="p-3">
+          <h4 class="text-white">Учёт имущества</h4>
+          <small class="text-secondary"> Панель администратора </small>
+        </div>
+        <nav class="nav flex-column px-2">
+          <a href="../../../index.html" class="nav-link"> Панель управления </a>
+          <a href="../assets/assets.html" class="nav-link active">
+            Имущество
+          </a>
+          <a href="../employees/employees.html" class="nav-link">
+            Сотрудники
+          </a>
+          <a href="../issues/issues.html" class="nav-link"> Выдачи </a>
+          <a href="../reports/reports.html" class="nav-link"> Отчёты </a>
+        </nav>
+      </aside>
+      <main class="main-content flex-grow-1">
+        <div class="mb-4">
+          <a href="asset-details.html" class="text-decoration-none">
+            ← Назад к имуществу
+          </a>
+          <h1 class="mt-3">Изменение имущества</h1>
+          <p class="text-muted">Редактирование информации об имуществе</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-8">
+            <div class="card shadow-sm">
+              <div class="card-header">Основная информация</div>
+              <div class="card-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="assetName" class="form-label"> Название </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="assetName"
+                      value="Lenovo ThinkPad T14"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="inventoryNumber" class="form-label">
+                      Инвентарный номер
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inventoryNumber"
+                      value="INV-0001"
+                      readonly
+                    />
+                    <div class="form-text">
+                      Инвентарный номер нельзя изменить.
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="category" class="form-label"> Категория </label>
+                    <select class="form-select" id="category" required>
+                      <option value="computer" selected>
+                        Компьютерная техника
+                      </option>
+                      <option value="furniture">Мебель</option>
+                      <option value="office">Офисное оборудование</option>
+                      <option value="other">Другое</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="arrivalDate" class="form-label">
+                      Дата поступления
+                    </label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="arrivalDate"
+                      value="2025-03-15"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="condition" class="form-label">
+                      Состояние
+                    </label>
+                    <select class="form-select" id="condition" required>
+                      <option value="good" selected>Исправно</option>
+                      <option value="repair">Требует ремонта</option>
+                      <option value="broken">Неисправно</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="status" class="form-label"> Статус </label>
+                    <select class="form-select" id="status" required>
+                      <option value="warehouse" selected>На складе</option>
+                      <option value="issued">Выдано</option>
+                      <option value="repair">На ремонте</option>
+                      <option value="written-off">Списано</option>
+                    </select>
+                  </div>
+                  <div class="mb-4">
+                    <label for="comment" class="form-label">
+                      Комментарий
+                    </label>
+                    <textarea
+                      class="form-control"
+                      id="comment"
+                      rows="4"
+                      placeholder="Дополнительная информация"
+                    ></textarea>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                      Сохранить изменения
+                    </button>
+                    <a
+                      href="asset-details.html"
+                      class="btn btn-outline-secondary"
+                    >
+                      Отмена
+                    </a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+              <div class="card-header">Текущий ответственный</div>
+              <div class="card-body">
+                <h5>Не закреплено</h5>
+                <p class="text-muted mb-0">Имущество находится на складе.</p>
+              </div>
+            </div>
+            <div class="card shadow-sm">
+              <div class="card-header">Информация</div>
+              <div class="card-body">
+                <p class="mb-0 text-muted">
+                  После сохранения изменений обновлённые данные будут
+                  отображаться в карточке имущества.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="../../js/main.js"></script>
+  </body>
+</html>

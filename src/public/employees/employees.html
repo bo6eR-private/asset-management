@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Сотрудники — Учёт имущества</title>
+  </head>
+  <body>
+    <div class="d-flex">
+      <aside class="sidebar bg-dark position-fixed">
+        <div class="p-3">
+          <h4 class="text-white">Учёт имущества</h4>
+          <small class="text-secondary"> Панель администратора </small>
+        </div>
+        <nav class="nav flex-column px-2">
+          <a href="../../../index.html" class="nav-link"> Панель управления </a>
+          <a href="../assets/assets.html" class="nav-link">
+            Имущество
+          </a>
+          <a href="../employees/employees.html" class="nav-link active">
+            Сотрудники
+          </a>
+          <a href="../issues/issues.html" class="nav-link"> Выдачи </a>
+          <a href="../reports/reports.html" class="nav-link"> Отчёты </a>
+        </nav>
+      </aside>
+      <main class="main-content flex-grow-1">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h1>Сотрудники</h1>
+            <p class="text-muted mb-0">Управление сотрудниками организации</p>
+          </div>
+          <a href="employee-create.html" class="btn btn-primary">
+            + Добавить сотрудника
+          </a>
+        </div>
+        <div class="card shadow-sm mb-4">
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Поиск по ФИО"
+                />
+              </div>
+              <div class="col-md-4">
+                <select class="form-select">
+                  <option selected>Все подразделения</option>
+                  <option>IT-отдел</option>
+                  <option>Бухгалтерия</option>
+                  <option>Отдел кадров</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+                <button class="btn btn-primary w-100">Найти</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle">
+                <thead>
+                  <tr>
+                    <th>ФИО</th>
+                    <th>Должность</th>
+                    <th>Подразделение</th>
+                    <th>Телефон</th>
+                    <th>Имущества на руках</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Иванов Иван Иванович</td>
+                    <td>Программист</td>
+                    <td>IT-отдел</td>
+                    <td>+7 900 000-00-01</td>
+                    <td>4</td>
+                    <td>
+                      <button
+                        class="btn btn-sm btn-outline-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#employeeModal"
+                      >
+                        Открыть
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Петров Пётр Петрович</td>
+                    <td>Бухгалтер</td>
+                    <td>Бухгалтерия</td>
+                    <td>+7 900 000-00-02</td>
+                    <td>2</td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary">
+                        Открыть
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Сидоров Алексей Сергеевич</td>
+                    <td>Системный администратор</td>
+                    <td>IT-отдел</td>
+                    <td>+7 900 000-00-03</td>
+                    <td>6</td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary">
+                        Открыть
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="modal fade" id="employeeModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Иванов Иван Иванович</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              <strong>Должность:</strong>
+              Программист
+            </p>
+            <p>
+              <strong>Подразделение:</strong>
+              IT-отдел
+            </p>
+            <p>
+              <strong>Email:</strong>
+              ivanov@example.com
+            </p>
+            <h6 class="mt-4">Имущество на руках</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Инв. номер</th>
+                  <th>Название</th>
+                  <th>Дата выдачи</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>INV-0002</td>
+                  <td>Dell UltraSharp</td>
+                  <td>10.06.2025</td>
+                </tr>
+                <tr>
+                  <td>INV-0005</td>
+                  <td>Ноутбук HP</td>
+                  <td>12.06.2025</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Закрыть
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="../../js/main.js"></script>
+  </body>
+</html>
