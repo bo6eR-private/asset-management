@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Учёт материальных ценностей</title>
+  </head>
+  <body>
+    <div class="d-flex">
+      <aside class="sidebar bg-dark position-fixed">
+        <div class="p-3">
+          <h4 class="text-white">Учёт имущества</h4>
+          <small class="text-secondary"> Панель администратора </small>
+        </div>
+        <nav class="nav flex-column px-2">
+          <button type="button" class="nav-link" data-nav="dashboard" onclick="route('dashboard')">
+            Панель управления
+          </button>
+          <button type="button" class="nav-link" data-nav="assets" onclick="route('assets')">
+            Имущество
+          </button>
+          <button type="button" class="nav-link" data-nav="employees" onclick="route('employees')">
+            Сотрудники
+          </button>
+          <button type="button" class="nav-link" data-nav="issues" onclick="route('issues')">
+            Выдачи
+          </button>
+          <button type="button" class="nav-link" data-nav="reports" onclick="route('reports')">
+            Отчёты
+          </button>
+        </nav>
+      </aside>
+      <main id="app" class="main-content flex-grow-1"></main>
+    </div>
+    <script type="module" src="/vite/js/main.js"></script>
+  </body>
+</html>

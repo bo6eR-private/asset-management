@@ -17,6 +17,11 @@ body {
 .sidebar .nav-link {
     color: #adb5bd;
     padding: 10px 15px;
+    border: 0;
+    background: transparent;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
 }
 
 .sidebar .nav-link:hover {

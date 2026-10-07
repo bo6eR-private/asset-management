@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vite"
+    "dev": "concurrently -k \"node server.js\" \"vite\"",
+    "dev:server": "node server.js",
+    "dev:client": "vite",
+    "build": "vite build",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +17,9 @@
   "type": "commonjs",
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.8"
+    "bootstrap": "^5.3.8",
+    "concurrently": "^10.0.5",
+    "express": "^5.2.1"
   },
   "devDependencies": {
     "vite": "^8.3.1"
