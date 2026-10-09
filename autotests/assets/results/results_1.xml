@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="1.430" timestamp="2026-10-09T20:50:10.178890+00:00" hostname="c5b8e7d4cc98"><testcase classname="solution" name="test_assets_list_displays_three_items" time="0.609"><failure message="AssertionError: Ожидалось 3 записи в таблице, а найдено 2&#10;assert 2 == 3&#10; +  where 2 = len([&lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;414b9e2ea88b33fc4f62dc6104c1b9dc&quot;, element=&quot;f.6DE8ADB7D280...4b9e2ea88b33fc4f62dc6104c1b9dc&quot;, element=&quot;f.6DE8ADB7D280EB40EC2929F9CFE7262B.d.4C059BB3F32229AC78FB7940BFBA3B9B.e.8&quot;)&gt;])">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="414b9e2ea88b33fc4f62dc6104c1b9dc")&gt;
+
+    def test_assets_list_displays_three_items(driver):
+        """Проверяет, что на странице отображается 3 записи имущества."""
+        driver.get(TEST_URL)
+        wait = WebDriverWait(driver, 10)
+    
+        wait.until(EC.presence_of_element_located((By.ID, "assetsTable")))
+    
+        assetSize = 3;
+        rows = driver.find_elements(By.CSS_SELECTOR, "#assetsTable tr")
+&gt;       assert len(rows) == assetSize, f"Ожидалось { assetSize } записи в таблице, а найдено {len(rows)}"
+E       AssertionError: Ожидалось 3 записи в таблице, а найдено 2
+E       assert 2 == 3
+E        +  where 2 = len([&lt;selenium.webdriver.remote.webelement.WebElement (session="414b9e2ea88b33fc4f62dc6104c1b9dc", element="f.6DE8ADB7D280...4b9e2ea88b33fc4f62dc6104c1b9dc", element="f.6DE8ADB7D280EB40EC2929F9CFE7262B.d.4C059BB3F32229AC78FB7940BFBA3B9B.e.8")&gt;])
+
+app/solution.py:32: AssertionError</failure></testcase><testcase classname="solution" name="test_search_by_name" time="0.181" /><testcase classname="solution" name="test_filter_by_category" time="0.216" /><testcase classname="solution" name="test_filter_by_status" time="0.188" /><testcase classname="solution" name="test_open_button_text" time="0.130" /></testsuite></testsuites>

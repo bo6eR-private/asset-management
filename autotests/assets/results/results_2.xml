@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="11.332" timestamp="2026-10-09T20:50:11.827273+00:00" hostname="c5b8e7d4cc98"><testcase classname="solution" name="test_assets_list_displays_three_items" time="0.358" /><testcase classname="solution" name="test_search_by_name" time="10.324"><failure message="selenium.common.exceptions.TimeoutException: Message:">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="48ac7718d339e7e06f7aef97df5877fb")&gt;
+
+    def test_search_by_name(driver):
+        """Проверяет поиск имущества по названию."""
+        driver.get(TEST_URL)
+        wait = WebDriverWait(driver, 10)
+    
+        # Вводим название для поиска
+        search_input = wait.until(EC.presence_of_element_located((By.ID, "searchInput")))
+        search_input.clear()
+        search_input.send_keys("Lenovo ThinkPad T14")
+    
+        # Нажимаем кнопку "Найти"
+        search_button = driver.find_element(By.ID, "searchButton")
+        search_button.click()
+    
+        # Ждём обновления таблицы
+&gt;       wait.until(lambda d: len(d.find_elements(By.CSS_SELECTOR, "#assetsTable tr")) &gt; 0)
+
+app/solution.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="48ac7718d339e7e06f7aef97df5877fb")&gt;
+method = &lt;function test_search_by_name.&lt;locals&gt;.&lt;lambda&gt; at 0x7b9cf563aa30&gt;
+message = ''
+
+    def until(self, method: Callable[[D], Literal[False] | T], message: str = "") -&gt; T:
+        """Wait until the method returns a value that is not False.
+    
+        Calls the method provided with the driver as an argument until the
+        return value does not evaluate to ``False``.
+    
+        Args:
+            method: A callable object that takes a WebDriver instance as an
+                argument.
+            message: Optional message for TimeoutException.
+    
+        Returns:
+            The result of the last call to `method`.
+    
+        Raises:
+            TimeoutException: If 'method' does not return a truthy value within
+                the WebDriverWait object's timeout.
+    
+        Example:
+            &gt;&gt;&gt; from selenium.webdriver.common.by import By
+            &gt;&gt;&gt; from selenium.webdriver.support.wait import WebDriverWait
+            &gt;&gt;&gt; from selenium.webdriver.support import expected_conditions as EC
+            &gt;&gt;&gt;
+            &gt;&gt;&gt; # Wait until an element is visible on the page
+            &gt;&gt;&gt; wait = WebDriverWait(driver, 10)
+            &gt;&gt;&gt; element = wait.until(EC.visibility_of_element_located((By.ID, "exampleId")))
+            &gt;&gt;&gt; print(element.text)
+        """
+        screen = None
+        stacktrace = None
+    
+        end_time = time.monotonic() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, "screen", None)
+                stacktrace = getattr(exc, "stacktrace", None)
+            if time.monotonic() &gt; end_time:
+                break
+            time.sleep(self._poll)
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message:
+
+home/seluser/venv/lib/python3.14/site-packages/selenium/webdriver/support/wait.py:121: TimeoutException</failure></testcase><testcase classname="solution" name="test_filter_by_category" time="0.219" /><testcase classname="solution" name="test_filter_by_status" time="0.193" /><testcase classname="solution" name="test_open_button_text" time="0.124" /></testsuite></testsuites>

@@ -1,0 +1,7 @@
+{
+  "test_assets_list_displays_three_items": "check",
+  "test_filter_by_category": "fail",
+  "test_filter_by_status": "check",
+  "test_open_button_text": "check",
+  "test_search_by_name": "check"
+}

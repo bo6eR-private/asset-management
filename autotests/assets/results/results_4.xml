@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="1.109" timestamp="2026-10-09T20:50:24.605866+00:00" hostname="c5b8e7d4cc98"><testcase classname="solution" name="test_assets_list_displays_three_items" time="0.336" /><testcase classname="solution" name="test_search_by_name" time="0.174" /><testcase classname="solution" name="test_filter_by_category" time="0.203" /><testcase classname="solution" name="test_filter_by_status" time="0.162"><failure message="AssertionError: Ожидалось 1 запись со статусом 'На складе', а найдено 3&#10;assert 3 == 1&#10; +  where 3 = len([&lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;8b0ce2ee58c194bbbd4a6ab49c74c009&quot;, element=&quot;f.998EDB17C88E...ce2ee58c194bbbd4a6ab49c74c009&quot;, element=&quot;f.998EDB17C88EB31B98E835C153B3FE60.d.C5272C095787B3A8C77AEDD78D1F6E83.e.71&quot;)&gt;])">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="8b0ce2ee58c194bbbd4a6ab49c74c009")&gt;
+
+    def test_filter_by_status(driver):
+        """Проверяет фильтрацию по статусу."""
+        driver.get(TEST_URL)
+        wait = WebDriverWait(driver, 10)
+    
+        # Выбираем статус "На складе"
+        status_select = wait.until(EC.presence_of_element_located((By.ID, "statusFilter")))
+        status_select.click()
+    
+        from selenium.webdriver.support.ui import Select
+        select = Select(status_select)
+        select.select_by_value("stock")
+    
+        # Нажимаем кнопку "Найти"
+        search_button = driver.find_element(By.ID, "searchButton")
+        search_button.click()
+    
+        # Ждём обновления таблицы
+        wait.until(lambda d: len(d.find_elements(By.CSS_SELECTOR, "#assetsTable tr")) &gt; 0)
+    
+        # Проверяем, что отображаются только записи со статусом "На складе"
+        rows = driver.find_elements(By.CSS_SELECTOR, "#assetsTable tr")
+&gt;       assert len(rows) == 1, f"Ожидалось 1 запись со статусом 'На складе', а найдено {len(rows)}"
+E       AssertionError: Ожидалось 1 запись со статусом 'На складе', а найдено 3
+E       assert 3 == 1
+E        +  where 3 = len([&lt;selenium.webdriver.remote.webelement.WebElement (session="8b0ce2ee58c194bbbd4a6ab49c74c009", element="f.998EDB17C88E...ce2ee58c194bbbd4a6ab49c74c009", element="f.998EDB17C88EB31B98E835C153B3FE60.d.C5272C095787B3A8C77AEDD78D1F6E83.e.71")&gt;])
+
+app/solution.py:113: AssertionError</failure></testcase><testcase classname="solution" name="test_open_button_text" time="0.119" /></testsuite></testsuites>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="1.092" timestamp="2026-10-09T20:50:23.337700+00:00" hostname="c5b8e7d4cc98"><testcase classname="solution" name="test_assets_list_displays_three_items" time="0.314" /><testcase classname="solution" name="test_search_by_name" time="0.180" /><testcase classname="solution" name="test_filter_by_category" time="0.177"><failure message="AssertionError: Ожидалось 2 записи категории 'Компьютерная техника', а найдено 3&#10;assert 3 == 2&#10; +  where 3 = len([&lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;24e5a10f0ba27da3ec45bf25641e4445&quot;, element=&quot;f.D91DCBE71572...5a10f0ba27da3ec45bf25641e4445&quot;, element=&quot;f.D91DCBE715726A41ECB469475863AB32.d.69A88762BA5AAC3FC5116C49E7483F0E.e.42&quot;)&gt;])">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="24e5a10f0ba27da3ec45bf25641e4445")&gt;
+
+    def test_filter_by_category(driver):
+        """Проверяет фильтрацию по категории."""
+        driver.get(TEST_URL)
+        wait = WebDriverWait(driver, 10)
+    
+        # Выбираем категорию "Компьютерная техника"
+        category_select = wait.until(EC.presence_of_element_located((By.ID, "categoryFilter")))
+        category_select.click()
+    
+        from selenium.webdriver.support.ui import Select
+        select = Select(category_select)
+        select.select_by_value("computer")
+    
+        # Нажимаем кнопку "Найти"
+        search_button = driver.find_element(By.ID, "searchButton")
+        search_button.click()
+    
+        # Ждём обновления таблицы
+        wait.until(lambda d: len(d.find_elements(By.CSS_SELECTOR, "#assetsTable tr")) &gt; 0)
+    
+        # Проверяем, что отображаются только записи категории "Компьютерная техника"
+        rows = driver.find_elements(By.CSS_SELECTOR, "#assetsTable tr")
+&gt;       assert len(rows) == 2, f"Ожидалось 2 записи категории 'Компьютерная техника', а найдено {len(rows)}"
+E       AssertionError: Ожидалось 2 записи категории 'Компьютерная техника', а найдено 3
+E       assert 3 == 2
+E        +  where 3 = len([&lt;selenium.webdriver.remote.webelement.WebElement (session="24e5a10f0ba27da3ec45bf25641e4445", element="f.D91DCBE71572...5a10f0ba27da3ec45bf25641e4445", element="f.D91DCBE715726A41ECB469475863AB32.d.69A88762BA5AAC3FC5116C49E7483F0E.e.42")&gt;])
+
+app/solution.py:83: AssertionError</failure></testcase><testcase classname="solution" name="test_filter_by_status" time="0.190" /><testcase classname="solution" name="test_open_button_text" time="0.118" /></testsuite></testsuites>
