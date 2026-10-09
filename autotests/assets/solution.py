@@ -24,13 +24,12 @@ def test_assets_list_displays_three_items(driver):
     """Проверяет, что на странице отображается 3 записи имущества."""
     driver.get(TEST_URL)
     wait = WebDriverWait(driver, 10)
-    
-    # Ждём загрузки таблицы
+
     wait.until(EC.presence_of_element_located((By.ID, "assetsTable")))
-    
-    # Проверяем, что в таблице есть 3 записи
-    rows = driver.find_elements(By.CSS_SELECTOR, "#assetsTable tbody tr")
-    assert len(rows) == 3, f"Ожидалось 3 записи в таблице, а найдено {len(rows)}"
+
+    assetSize = 3;
+    rows = driver.find_elements(By.CSS_SELECTOR, "#assetsTable tr")
+    assert len(rows) == assetSize, f"Ожидалось { assetSize } записи в таблице, а найдено {len(rows)}"
 
 
 def test_search_by_name(driver):
@@ -48,10 +47,10 @@ def test_search_by_name(driver):
     search_button.click()
     
     # Ждём обновления таблицы
-    wait.until(lambda d: len(d.find_elements(By.CSS_SELECTOR, "#assetsTable tbody tr")) > 0)
+    wait.until(lambda d: len(d.find_elements(By.CSS_SELECTOR, "#assetsTable tr")) > 0)
     
     # Проверяем, что отображается только одна запись
-    rows = driver.find_elements(By.CSS_SELECTOR, "#assetsTable tbody tr")
+    rows = driver.find_elements(By.CSS_SELECTOR, "#assetsTable tr")
     assert len(rows) == 1, f"Ожидалось 1 запись после поиска по названию, а найдено {len(rows)}"
     
     # Проверяем, что это именно Lenovo ThinkPad T14
@@ -77,10 +76,10 @@ def test_filter_by_category(driver):
     search_button.click()
     
     # Ждём обновления таблицы
-    wait.until(lambda d: len(d.find_elements(By.CSS_SELECTOR, "#assetsTable tbody tr")) > 0)
+    wait.until(lambda d: len(d.find_elements(By.CSS_SELECTOR, "#assetsTable tr")) > 0)
     
     # Проверяем, что отображаются только записи категории "Компьютерная техника"
-    rows = driver.find_elements(By.CSS_SELECTOR, "#assetsTable tbody tr")
+    rows = driver.find_elements(By.CSS_SELECTOR, "#assetsTable tr")
     assert len(rows) == 2, f"Ожидалось 2 записи категории 'Компьютерная техника', а найдено {len(rows)}"
     
     # Проверяем, что все записи имеют категорию "Компьютерная техника"
@@ -107,10 +106,10 @@ def test_filter_by_status(driver):
     search_button.click()
     
     # Ждём обновления таблицы
-    wait.until(lambda d: len(d.find_elements(By.CSS_SELECTOR, "#assetsTable tbody tr")) > 0)
+    wait.until(lambda d: len(d.find_elements(By.CSS_SELECTOR, "#assetsTable tr")) > 0)
     
     # Проверяем, что отображаются только записи со статусом "На складе"
-    rows = driver.find_elements(By.CSS_SELECTOR, "#assetsTable tbody tr")
+    rows = driver.find_elements(By.CSS_SELECTOR, "#assetsTable tr")
     assert len(rows) == 1, f"Ожидалось 1 запись со статусом 'На складе', а найдено {len(rows)}"
     
     # Проверяем, что запись имеет статус "На складе"
@@ -125,7 +124,7 @@ def test_open_button_text(driver):
     wait = WebDriverWait(driver, 10)
     
     # Находим первую кнопку "Открыть"
-    rows = driver.find_elements(By.CSS_SELECTOR, "#assetsTable tbody tr")
+    rows = driver.find_elements(By.CSS_SELECTOR, "#assetsTable tr")
     assert len(rows) > 0, "В таблице должны быть записи"
     
     open_button = rows[0].find_element(By.CSS_SELECTOR, "a.btn-outline-primary")

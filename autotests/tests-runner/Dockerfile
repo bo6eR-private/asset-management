@@ -7,4 +7,6 @@ RUN mkdir -p /app
 COPY ./parser.bin /usr/bin/parser.bin
 COPY ./test.sh /usr/bin/test.sh
 
+RUN chmod +x /usr/bin/parser.bin /usr/bin/test.sh
+
 CMD ["/usr/bin/test.sh"]
