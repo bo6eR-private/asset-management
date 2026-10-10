@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="0.782" timestamp="2026-10-10T18:29:01.162157+00:00" hostname="be5057835d72"><testcase classname="solution" name="test_asset_title_displayed" time="0.323" /><testcase classname="solution" name="test_inventory_number_displayed" time="0.061" /><testcase classname="solution" name="test_history_has_three_records" time="0.033"><failure message="AssertionError: Ожидалось 3 записи в истории, а найдено 2&#10;assert 2 == 3&#10; +  where 2 = len([&lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;7aa5ad6aa9e2553f11a55ae8445bdf64&quot;, element=&quot;f.730B06544FBE...a5ad6aa9e2553f11a55ae8445bdf64&quot;, element=&quot;f.730B06544FBEDBE3F76449EE14A58CC7.d.8DC01108116B4B39A572611A96BC5D27.e.7&quot;)&gt;])">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="7aa5ad6aa9e2553f11a55ae8445bdf64")&gt;
+
+    def test_history_has_three_records(driver):
+        """Проверяет, что в истории операций 3 записи."""
+        driver.get(TEST_URL)
+        wait = WebDriverWait(driver, 10)
+    
+        rows = driver.find_elements(By.CSS_SELECTOR, ".table tbody tr")
+&gt;       assert len(rows) == 3, f"Ожидалось 3 записи в истории, а найдено {len(rows)}"
+E       AssertionError: Ожидалось 3 записи в истории, а найдено 2
+E       assert 2 == 3
+E        +  where 2 = len([&lt;selenium.webdriver.remote.webelement.WebElement (session="7aa5ad6aa9e2553f11a55ae8445bdf64", element="f.730B06544FBE...a5ad6aa9e2553f11a55ae8445bdf64", element="f.730B06544FBEDBE3F76449EE14A58CC7.d.8DC01108116B4B39A572611A96BC5D27.e.7")&gt;])
+
+app/solution.py:45: AssertionError</failure></testcase><testcase classname="solution" name="test_responsible_section_exists" time="0.051" /><testcase classname="solution" name="test_action_buttons_present" time="0.212" /></testsuite></testsuites>

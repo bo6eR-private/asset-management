@@ -1,0 +1,7 @@
+{
+  "test_action_buttons_present": "check",
+  "test_asset_title_displayed": "check",
+  "test_history_has_three_records": "fail",
+  "test_inventory_number_displayed": "check",
+  "test_responsible_section_exists": "check"
+}

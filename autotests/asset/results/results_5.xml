@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="0.798" timestamp="2026-10-10T18:29:03.985843+00:00" hostname="be5057835d72"><testcase classname="solution" name="test_asset_title_displayed" time="0.318" /><testcase classname="solution" name="test_inventory_number_displayed" time="0.063" /><testcase classname="solution" name="test_history_has_three_records" time="0.033" /><testcase classname="solution" name="test_responsible_section_exists" time="0.076" /><testcase classname="solution" name="test_action_buttons_present" time="0.199"><failure message="AssertionError: Должна быть кнопка 'Оформить выдачу'&#10;assert None is not None">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="6ae04eb723f72aa9b45aeacdffbc06db")&gt;
+
+    def test_action_buttons_present(driver):
+        """Проверяет наличие кнопок действий."""
+        driver.get(TEST_URL)
+        wait = WebDriverWait(driver, 10)
+    
+        actions_card = driver.find_elements(By.CLASS_NAME, "card")
+        actions_section = None
+        for card in actions_card:
+            header = card.find_element(By.CLASS_NAME, "card-header")
+            if "Действия" in header.text:
+                actions_section = card
+                break
+    
+        assert actions_section is not None, "Должна быть карточка 'Действия'"
+    
+        buttons = actions_section.find_elements(By.TAG_NAME, "button")
+        button_links = actions_section.find_elements(By.TAG_NAME, "a")
+        total_actions = len(buttons) + len(button_links)
+        assert total_actions == 3, f"Ожидалось 3 кнопки действий, а найдено {total_actions}"
+    
+        issue_button = None
+        for btn in button_links:
+            if "Оформить выдачу" in btn.text:
+                issue_button = btn
+                break
+    
+&gt;       assert issue_button is not None, "Должна быть кнопка 'Оформить выдачу'"
+E       AssertionError: Должна быть кнопка 'Оформить выдачу'
+E       assert None is not None
+
+app/solution.py:89: AssertionError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="0.784" timestamp="2026-10-10T18:29:03.024037+00:00" hostname="be5057835d72"><testcase classname="solution" name="test_asset_title_displayed" time="0.337" /><testcase classname="solution" name="test_inventory_number_displayed" time="0.074" /><testcase classname="solution" name="test_history_has_three_records" time="0.041" /><testcase classname="solution" name="test_responsible_section_exists" time="0.057" /><testcase classname="solution" name="test_action_buttons_present" time="0.171"><failure message="AssertionError: Ожидалось 3 кнопки действий, а найдено 2&#10;assert 2 == 3">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="ad3d016a3b60c67fa2cb9f6af80265ab")&gt;
+
+    def test_action_buttons_present(driver):
+        """Проверяет наличие кнопок действий."""
+        driver.get(TEST_URL)
+        wait = WebDriverWait(driver, 10)
+    
+        actions_card = driver.find_elements(By.CLASS_NAME, "card")
+        actions_section = None
+        for card in actions_card:
+            header = card.find_element(By.CLASS_NAME, "card-header")
+            if "Действия" in header.text:
+                actions_section = card
+                break
+    
+        assert actions_section is not None, "Должна быть карточка 'Действия'"
+    
+        buttons = actions_section.find_elements(By.TAG_NAME, "button")
+        button_links = actions_section.find_elements(By.TAG_NAME, "a")
+        total_actions = len(buttons) + len(button_links)
+&gt;       assert total_actions == 3, f"Ожидалось 3 кнопки действий, а найдено {total_actions}"
+E       AssertionError: Ожидалось 3 кнопки действий, а найдено 2
+E       assert 2 == 3
+
+app/solution.py:81: AssertionError</failure></testcase></testsuite></testsuites>
