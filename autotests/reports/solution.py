@@ -38,7 +38,10 @@ def test_four_report_cards_exist(driver):
     
     wait.until(EC.presence_of_element_located((By.CLASS_NAME, "card")))
     
-    cards = driver.find_elements(By.CSS_SELECTOR, ".card-body h5")
+    cards = driver.find_elements(
+        By.CSS_SELECTOR,
+        "main > .row.g-4 .card-body h5"
+    )
     report_titles = [card.text for card in cards]
     
     assert len(report_titles) == 4, f"Ожидалось 4 карточки отчётов, а найдено {len(report_titles)}"
