@@ -19,7 +19,6 @@ def driver():
     yield driver
     driver.quit()
 
-
 def test_page_title_is_correct(driver):
     """Проверяет, что заголовок страницы 'Изменение имущества'."""
     driver.get(TEST_URL)
@@ -27,7 +26,6 @@ def test_page_title_is_correct(driver):
     
     h1 = wait.until(EC.presence_of_element_located((By.TAG_NAME, "h1")))
     assert h1.text == "Изменение имущества", f"Ожидался заголовок 'Изменение имущества', а найден '{h1.text}'"
-
 
 def test_inventory_number_is_readonly(driver):
     """Проверяет, что поле инвентарного номера имеет атрибут readonly."""
@@ -37,7 +35,6 @@ def test_inventory_number_is_readonly(driver):
     inv_input = driver.find_element(By.ID, "inventoryNumber")
     readonly_attr = inv_input.get_attribute("readonly")
     assert readonly_attr is not None, "Поле инвентарного номера должно быть readonly"
-
 
 def test_responsible_section_exists(driver):
     """Проверяет, что есть карточка 'Текущий ответственный'."""
