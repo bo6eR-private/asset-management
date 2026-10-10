@@ -20,12 +20,16 @@ def driver():
     driver.quit()
 
 def test_page_title_is_correct(driver):
-    """Проверяет, что заголовок страницы 'Отчёты'."""
+    """Проверяет заголовок страницы 'Отчёты'."""
     driver.get(TEST_URL)
-    wait = WebDriverWait(driver, 10)
-    
-    h1 = wait.until(EC.presence_of_element_located((By.TAG_NAME, "h1")))
-    assert h1.text == "Отчёты", f"Ожидался заголовок 'Отчёты', а найден '{h1.text}'"
+
+    headings = driver.find_elements(By.TAG_NAME, "h1")
+    assert headings, "На странице отсутствует заголовок <h1>"
+
+    assert headings[0].text == "Отчёты", (
+        f"Ожидался заголовок 'Отчёты', "
+        f"а найден '{headings[0].text}'"
+    )
 
 def test_four_report_cards_exist(driver):
     """Проверяет, что есть 4 карточки доступных отчётов."""
