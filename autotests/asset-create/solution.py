@@ -20,26 +20,33 @@ def driver():
     driver.quit()
 
 def test_page_title_is_correct(driver):
-    """Проверяет, что заголовок страницы 'Добавление имущества'."""
+    """Проверяет заголовок страницы."""
     driver.get(TEST_URL)
-    wait = WebDriverWait(driver, 10)
-    
-    h1 = wait.until(EC.presence_of_element_located((By.TAG_NAME, "h1")))
-    assert h1.text == "Добавление имущества", f"Ожидался заголовок 'Добавление имущества', а найден '{h1.text}'"
+
+    headings = driver.find_elements(By.TAG_NAME, "h1")
+    assert headings, "На странице отсутствует заголовок <h1>"
+
+    actual_title = headings[0].text
+    expected_title = "Добавление имущества"
+
+    assert actual_title == expected_title, (
+        f"Неверный заголовок. "
+        f"Ожидался: '{expected_title}', получен: '{actual_title}'"
+    )
 
 def test_form_has_required_fields(driver):
     """Проверяет, что форма содержит поля: название, инвентарный номер, категория."""
     driver.get(TEST_URL)
     wait = WebDriverWait(driver, 10)
     
-    name_input = driver.find_element(By.ID, "assetName")
-    assert name_input is not None, "Поле 'Название' должно быть на форме"
+    name_input = driver.find_elements(By.ID, "assetName")
+    assert name_input, "Поле 'Название' должно быть на форме"
     
-    inv_input = driver.find_element(By.ID, "inventoryNumber")
-    assert inv_input is not None, "Поле 'Инвентарный номер' должно быть на форме"
+    inv_input = driver.find_elements(By.ID, "inventoryNumber")
+    assert inv_input, "Поле 'Инвентарный номер' должно быть на форме"
     
-    category_select = driver.find_element(By.ID, "category")
-    assert category_select is not None, "Селект 'Категория' должен быть на форме"
+    category_select = driver.find_elements(By.ID, "category")
+    assert category_select, "Селект «Категория» отсутствует на форме"
 
 
 def test_submit_button_exists(driver):
