@@ -21,27 +21,46 @@ def driver():
 
 
 def test_page_title_is_correct(driver):
-    """Проверяет, что заголовок страницы 'Добавление сотрудника'."""
+    """Проверяет заголовок страницы 'Добавление сотрудника'."""
     driver.get(TEST_URL)
-    wait = WebDriverWait(driver, 10)
-    
-    h1 = wait.until(EC.presence_of_element_located((By.TAG_NAME, "h1")))
-    assert h1.text == "Добавление сотрудника", f"Ожидался заголовок 'Добавление сотрудника', а найден '{h1.text}'"
+
+    headings = driver.find_elements(By.TAG_NAME, "h1")
+    assert headings, "На странице отсутствует заголовок <h1>"
+
+    actual_title = headings[0].text.strip()
+    expected_title = "Добавление сотрудника"
+
+    assert actual_title == expected_title, (
+        f"Неверный заголовок: ожидался '{expected_title}', "
+        f"получен '{actual_title}'"
+    )
 
 
 def test_submit_button_exists(driver):
     """Проверяет наличие кнопки 'Добавить сотрудника'."""
     driver.get(TEST_URL)
-    wait = WebDriverWait(driver, 10)
-    
-    submit_button = driver.find_element(By.XPATH, "//button[contains(text(), 'Добавить сотрудника')]")
-    assert submit_button.is_displayed(), "Кнопка 'Добавить сотрудника' должна быть отображена"
+
+    buttons = driver.find_elements(
+        By.XPATH,
+        "//button[contains(normalize-space(.), 'Добавить сотрудника')]"
+    )
+
+    assert buttons, "Кнопка «Добавить сотрудника» отсутствует на странице"
+    assert buttons[0].is_displayed(), (
+        "Кнопка «Добавить сотрудника» не отображается"
+    )
 
 
 def test_cancel_button_exists(driver):
-    """Проверяет наличие кнопки 'Отмена'."""
+    """Проверяет наличие ссылки 'Отмена'."""
     driver.get(TEST_URL)
-    wait = WebDriverWait(driver, 10)
-    
-    cancel_button = driver.find_element(By.XPATH, "//a[contains(text(), 'Отмена')]")
-    assert cancel_button.is_displayed(), "Кнопка 'Отмена' должна быть отображена"
+
+    cancel_links = driver.find_elements(
+        By.XPATH,
+        "//a[contains(normalize-space(.), 'Отмена')]"
+    )
+
+    assert cancel_links, "Ссылка «Отмена» отсутствует на странице"
+    assert cancel_links[0].is_displayed(), (
+        "Ссылка «Отмена» не отображается"
+    )
