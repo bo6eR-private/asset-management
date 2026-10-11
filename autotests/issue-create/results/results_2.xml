@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="0.597" timestamp="2026-10-11T13:58:47.362862+00:00" hostname="b2b9ed521493"><testcase classname="solution" name="test_page_title_is_correct" time="0.340" /><testcase classname="solution" name="test_submit_button_exists" time="0.040"><failure message="AssertionError: Кнопка «Оформить выдачу» отсутствует на странице&#10;assert []">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="9cced570a1a9719343731ed8e8fb3559")&gt;
+
+    def test_submit_button_exists(driver):
+        """Проверяет наличие кнопки 'Оформить выдачу'."""
+        driver.get(TEST_URL)
+    
+        buttons = driver.find_elements(
+            By.XPATH,
+            "//button[contains(normalize-space(.), 'Оформить выдачу')]"
+        )
+    
+&gt;       assert buttons, "Кнопка «Оформить выдачу» отсутствует на странице"
+E       AssertionError: Кнопка «Оформить выдачу» отсутствует на странице
+E       assert []
+
+app/solution.py:48: AssertionError</failure></testcase><testcase classname="solution" name="test_cancel_button_exists" time="0.111" /></testsuite></testsuites>

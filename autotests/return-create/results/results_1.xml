@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="0.929" timestamp="2026-10-11T14:00:08.924103+00:00" hostname="71efe4474864"><testcase classname="solution" name="test_page_title_is_correct" time="0.656"><failure message="AssertionError: На странице отсутствует заголовок &lt;h1&gt;&#10;assert []">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="c18b8661c3c12d591ca34c073122950a")&gt;
+
+    def test_page_title_is_correct(driver):
+        """Проверяет заголовок страницы 'Оформление возврата'."""
+        driver.get(TEST_URL)
+    
+        headings = driver.find_elements(By.TAG_NAME, "h1")
+&gt;       assert headings, "На странице отсутствует заголовок &lt;h1&gt;"
+E       AssertionError: На странице отсутствует заголовок &lt;h1&gt;
+E       assert []
+
+app/solution.py:28: AssertionError</failure></testcase><testcase classname="solution" name="test_submit_button_exists" time="0.048" /><testcase classname="solution" name="test_cancel_button_exists" time="0.115" /></testsuite></testsuites>

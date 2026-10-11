@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="11.123" timestamp="2026-10-10T18:42:36.195408+00:00" hostname="dd73cfd15d0a"><testcase classname="solution" name="test_page_title_is_correct" time="10.854"><failure message="selenium.common.exceptions.TimeoutException: Message: &#10;Stacktrace:&#10;#0 0x6286744e53da &lt;unknown&gt;&#10;#1 0x628673e1a5d9 &lt;unknown&gt;&#10;#2 0x628673e70e0c &lt;unknown&gt;&#10;#3 0x628673e71081 &lt;unknown&gt;&#10;#4 0x628673ebd6a4 &lt;unknown&gt;&#10;#5 0x628673eba90f &lt;unknown&gt;&#10;#6 0x628673e63bab &lt;unknown&gt;&#10;#7 0x628673e64991 &lt;unknown&gt;&#10;#8 0x6286744a81e7 &lt;unknown&gt;&#10;#9 0x6286744a6a15 &lt;unknown&gt;&#10;#10 0x628674491ae5 &lt;unknown&gt;&#10;#11 0x6286744a766a &lt;unknown&gt;&#10;#12 0x62867447a249 &lt;unknown&gt;&#10;#13 0x6286744cf678 &lt;unknown&gt;&#10;#14 0x6286744cf815 &lt;unknown&gt;&#10;#15 0x6286744e3d33 &lt;unknown&gt;&#10;#16 0x7a7d31cacb84 &lt;unknown&gt;&#10;#17 0x7a7d31d39cc4 __clone">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="bcd2f2a365c683feb0fb12273a8b93c4")&gt;
+
+    def test_page_title_is_correct(driver):
+        """Проверяет, что заголовок страницы 'Изменение имущества'."""
+        driver.get(TEST_URL)
+        wait = WebDriverWait(driver, 10)
+    
+&gt;       h1 = wait.until(EC.presence_of_element_located((By.TAG_NAME, "h1")))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+app/solution.py:27: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="bcd2f2a365c683feb0fb12273a8b93c4")&gt;
+method = &lt;function presence_of_element_located.&lt;locals&gt;._predicate at 0x7e58cd8bc5c0&gt;
+message = ''
+
+    def until(self, method: Callable[[D], Literal[False] | T], message: str = "") -&gt; T:
+        """Wait until the method returns a value that is not False.
+    
+        Calls the method provided with the driver as an argument until the
+        return value does not evaluate to ``False``.
+    
+        Args:
+            method: A callable object that takes a WebDriver instance as an
+                argument.
+            message: Optional message for TimeoutException.
+    
+        Returns:
+            The result of the last call to `method`.
+    
+        Raises:
+            TimeoutException: If 'method' does not return a truthy value within
+                the WebDriverWait object's timeout.
+    
+        Example:
+            &gt;&gt;&gt; from selenium.webdriver.common.by import By
+            &gt;&gt;&gt; from selenium.webdriver.support.wait import WebDriverWait
+            &gt;&gt;&gt; from selenium.webdriver.support import expected_conditions as EC
+            &gt;&gt;&gt;
+            &gt;&gt;&gt; # Wait until an element is visible on the page
+            &gt;&gt;&gt; wait = WebDriverWait(driver, 10)
+            &gt;&gt;&gt; element = wait.until(EC.visibility_of_element_located((By.ID, "exampleId")))
+            &gt;&gt;&gt; print(element.text)
+        """
+        screen = None
+        stacktrace = None
+    
+        end_time = time.monotonic() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, "screen", None)
+                stacktrace = getattr(exc, "stacktrace", None)
+            if time.monotonic() &gt; end_time:
+                break
+            time.sleep(self._poll)
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message: 
+E       Stacktrace:
+E       #0 0x6286744e53da &lt;unknown&gt;
+E       #1 0x628673e1a5d9 &lt;unknown&gt;
+E       #2 0x628673e70e0c &lt;unknown&gt;
+E       #3 0x628673e71081 &lt;unknown&gt;
+E       #4 0x628673ebd6a4 &lt;unknown&gt;
+E       #5 0x628673eba90f &lt;unknown&gt;
+E       #6 0x628673e63bab &lt;unknown&gt;
+E       #7 0x628673e64991 &lt;unknown&gt;
+E       #8 0x6286744a81e7 &lt;unknown&gt;
+E       #9 0x6286744a6a15 &lt;unknown&gt;
+E       #10 0x628674491ae5 &lt;unknown&gt;
+E       #11 0x6286744a766a &lt;unknown&gt;
+E       #12 0x62867447a249 &lt;unknown&gt;
+E       #13 0x6286744cf678 &lt;unknown&gt;
+E       #14 0x6286744cf815 &lt;unknown&gt;
+E       #15 0x6286744e3d33 &lt;unknown&gt;
+E       #16 0x7a7d31cacb84 &lt;unknown&gt;
+E       #17 0x7a7d31d39cc4 __clone
+
+home/seluser/venv/lib/python3.14/site-packages/selenium/webdriver/support/wait.py:121: TimeoutException</failure></testcase><testcase classname="solution" name="test_inventory_number_is_readonly" time="0.049" /><testcase classname="solution" name="test_responsible_section_exists" time="0.118" /></testsuite></testsuites>

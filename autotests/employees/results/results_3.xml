@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="0.600" timestamp="2026-10-11T13:52:52.888698+00:00" hostname="5987f38106e1"><testcase classname="solution" name="test_page_title_is_correct" time="0.344" /><testcase classname="solution" name="test_three_employees_displayed" time="0.044" /><testcase classname="solution" name="test_add_employee_button_exists" time="0.107"><failure message="AssertionError: Ссылка «Добавить сотрудника» отсутствует на странице&#10;assert []">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="c5105b905bd92fadf79bba912cd44a63")&gt;
+
+    def test_add_employee_button_exists(driver):
+        """Проверяет наличие ссылки '+ Добавить сотрудника'."""
+        driver.get(TEST_URL)
+    
+        add_buttons = driver.find_elements(
+            By.XPATH,
+            "//a[contains(normalize-space(.), 'Добавить сотрудника')]"
+        )
+    
+&gt;       assert add_buttons, (
+            "Ссылка «Добавить сотрудника» отсутствует на странице"
+        )
+E       AssertionError: Ссылка «Добавить сотрудника» отсутствует на странице
+E       assert []
+
+app/solution.py:58: AssertionError</failure></testcase></testsuite></testsuites>

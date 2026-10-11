@@ -1,0 +1,5 @@
+{
+  "test_add_employee_button_exists": "check",
+  "test_page_title_is_correct": "fail",
+  "test_three_employees_displayed": "check"
+}

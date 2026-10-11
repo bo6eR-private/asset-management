@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="0.575" timestamp="2026-10-10T18:42:47.481662+00:00" hostname="dd73cfd15d0a"><testcase classname="solution" name="test_page_title_is_correct" time="0.306" /><testcase classname="solution" name="test_inventory_number_is_readonly" time="0.049"><failure message="AssertionError: Поле инвентарного номера должно быть readonly&#10;assert None is not None">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="1338adee93fd1d80c08590fdaccacf97")&gt;
+
+    def test_inventory_number_is_readonly(driver):
+        """Проверяет, что поле инвентарного номера имеет атрибут readonly."""
+        driver.get(TEST_URL)
+        wait = WebDriverWait(driver, 10)
+    
+        inv_input = driver.find_element(By.ID, "inventoryNumber")
+        readonly_attr = inv_input.get_attribute("readonly")
+&gt;       assert readonly_attr is not None, "Поле инвентарного номера должно быть readonly"
+E       AssertionError: Поле инвентарного номера должно быть readonly
+E       assert None is not None
+
+app/solution.py:37: AssertionError</failure></testcase><testcase classname="solution" name="test_responsible_section_exists" time="0.120" /></testsuite></testsuites>

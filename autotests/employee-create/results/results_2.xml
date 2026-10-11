@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="0.589" timestamp="2026-10-11T13:47:11.799555+00:00" hostname="de618ff97afb"><testcase classname="solution" name="test_page_title_is_correct" time="0.317" /><testcase classname="solution" name="test_submit_button_exists" time="0.047"><failure message="AssertionError: Кнопка «Добавить сотрудника» отсутствует на странице&#10;assert []">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="e8f69fdfefcd69ebf0d903dbe74a349f")&gt;
+
+    def test_submit_button_exists(driver):
+        """Проверяет наличие кнопки 'Добавить сотрудника'."""
+        driver.get(TEST_URL)
+    
+        buttons = driver.find_elements(
+            By.XPATH,
+            "//button[contains(normalize-space(.), 'Добавить сотрудника')]"
+        )
+    
+&gt;       assert buttons, "Кнопка «Добавить сотрудника» отсутствует на странице"
+E       AssertionError: Кнопка «Добавить сотрудника» отсутствует на странице
+E       assert []
+
+app/solution.py:48: AssertionError</failure></testcase><testcase classname="solution" name="test_cancel_button_exists" time="0.119" /></testsuite></testsuites>

@@ -1,0 +1,5 @@
+{
+  "test_inventory_number_is_readonly": "check",
+  "test_page_title_is_correct": "check",
+  "test_responsible_section_exists": "fail"
+}

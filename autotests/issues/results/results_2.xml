@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="0.615" timestamp="2026-10-11T13:59:29.668221+00:00" hostname="7bf2f8a33109"><testcase classname="solution" name="test_page_title_is_correct" time="0.350" /><testcase classname="solution" name="test_three_issues_displayed" time="0.037"><failure message="AssertionError: Ожидалось 3 выдачи, а найдено 2&#10;assert 2 == 3&#10; +  where 2 = len([&lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;7309d91ee26524419fb1e2645487965c&quot;, element=&quot;f.A11A22EEF826...9d91ee26524419fb1e2645487965c&quot;, element=&quot;f.A11A22EEF826FEC242439D4C7CE0EC90.d.2AEAA6F6C675C68722E0EE6468C2A630.e.22&quot;)&gt;])">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="7309d91ee26524419fb1e2645487965c")&gt;
+
+    def test_three_issues_displayed(driver):
+        """Проверяет, что в таблице отображается 3 выдачи."""
+        driver.get(TEST_URL)
+    
+        rows = driver.find_elements(By.CSS_SELECTOR, "table tbody tr")
+&gt;       assert len(rows) == 3, (
+            f"Ожидалось 3 выдачи, а найдено {len(rows)}"
+        )
+E       AssertionError: Ожидалось 3 выдачи, а найдено 2
+E       assert 2 == 3
+E        +  where 2 = len([&lt;selenium.webdriver.remote.webelement.WebElement (session="7309d91ee26524419fb1e2645487965c", element="f.A11A22EEF826...9d91ee26524419fb1e2645487965c", element="f.A11A22EEF826FEC242439D4C7CE0EC90.d.2AEAA6F6C675C68722E0EE6468C2A630.e.22")&gt;])
+
+app/solution.py:44: AssertionError</failure></testcase><testcase classname="solution" name="test_create_issue_button_exists" time="0.113" /></testsuite></testsuites>

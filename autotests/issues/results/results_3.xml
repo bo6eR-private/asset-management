@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="0.577" timestamp="2026-10-11T13:59:30.455208+00:00" hostname="7bf2f8a33109"><testcase classname="solution" name="test_page_title_is_correct" time="0.312" /><testcase classname="solution" name="test_three_issues_displayed" time="0.044" /><testcase classname="solution" name="test_create_issue_button_exists" time="0.111"><failure message="AssertionError: Ссылка «Оформить выдачу» отсутствует на странице&#10;assert []">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="e61e430d75d5b7ba71ff575603a97a3f")&gt;
+
+    def test_create_issue_button_exists(driver):
+        """Проверяет наличие ссылки '+ Оформить выдачу'."""
+        driver.get(TEST_URL)
+    
+        buttons = driver.find_elements(
+            By.XPATH,
+            "//a[contains(normalize-space(.), 'Оформить выдачу')]"
+        )
+    
+&gt;       assert buttons, "Ссылка «Оформить выдачу» отсутствует на странице"
+E       AssertionError: Ссылка «Оформить выдачу» отсутствует на странице
+E       assert []
+
+app/solution.py:58: AssertionError</failure></testcase></testsuite></testsuites>

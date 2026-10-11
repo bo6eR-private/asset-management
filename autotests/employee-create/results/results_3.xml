@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="0.562" timestamp="2026-10-11T13:47:12.554142+00:00" hostname="de618ff97afb"><testcase classname="solution" name="test_page_title_is_correct" time="0.305" /><testcase classname="solution" name="test_submit_button_exists" time="0.045" /><testcase classname="solution" name="test_cancel_button_exists" time="0.110"><failure message="AssertionError: Ссылка «Отмена» отсутствует на странице&#10;assert []">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="a73e2fd6503b2df2ec5a88d7051703d7")&gt;
+
+    def test_cancel_button_exists(driver):
+        """Проверяет наличие ссылки 'Отмена'."""
+        driver.get(TEST_URL)
+    
+        cancel_links = driver.find_elements(
+            By.XPATH,
+            "//a[contains(normalize-space(.), 'Отмена')]"
+        )
+    
+&gt;       assert cancel_links, "Ссылка «Отмена» отсутствует на странице"
+E       AssertionError: Ссылка «Отмена» отсутствует на странице
+E       assert []
+
+app/solution.py:63: AssertionError</failure></testcase></testsuite></testsuites>

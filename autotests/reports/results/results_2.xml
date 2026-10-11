@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="0.639" timestamp="2026-10-10T19:13:07.109823+00:00" hostname="9bd62423942e"><testcase classname="solution" name="test_page_title_is_correct" time="0.322" /><testcase classname="solution" name="test_four_report_cards_exist" time="0.057"><failure message="AssertionError: Ожидалось 4 карточки отчётов, а найдено 2&#10;assert 2 == 4&#10; +  where 2 = len(['Отчёт по имуществу', 'Отчёт по сотрудникам'])">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="b711cbbd55ea405bd6bd5ec8cb8e430b")&gt;
+
+    def test_four_report_cards_exist(driver):
+        """Проверяет, что есть 4 карточки доступных отчётов."""
+        driver.get(TEST_URL)
+        wait = WebDriverWait(driver, 10)
+    
+        wait.until(EC.presence_of_element_located((By.CLASS_NAME, "card")))
+    
+        cards = driver.find_elements(
+            By.CSS_SELECTOR,
+            "main &gt; .row.g-4 .card-body h5"
+        )
+        report_titles = [card.text for card in cards]
+    
+&gt;       assert len(report_titles) == 4, f"Ожидалось 4 карточки отчётов, а найдено {len(report_titles)}"
+E       AssertionError: Ожидалось 4 карточки отчётов, а найдено 2
+E       assert 2 == 4
+E        +  where 2 = len(['Отчёт по имуществу', 'Отчёт по сотрудникам'])
+
+app/solution.py:47: AssertionError</failure></testcase><testcase classname="solution" name="test_export_section_exists" time="0.161" /></testsuite></testsuites>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="0.576" timestamp="2026-10-10T18:42:48.223543+00:00" hostname="dd73cfd15d0a"><testcase classname="solution" name="test_page_title_is_correct" time="0.313" /><testcase classname="solution" name="test_inventory_number_is_readonly" time="0.044" /><testcase classname="solution" name="test_responsible_section_exists" time="0.118"><failure message="AssertionError: Должна быть карточка 'Текущий ответственный'&#10;assert None is not None">driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="c2ac7d2ee0967070ac20b8ffab7975c2")&gt;
+
+    def test_responsible_section_exists(driver):
+        """Проверяет, что есть карточка 'Текущий ответственный'."""
+        driver.get(TEST_URL)
+        wait = WebDriverWait(driver, 10)
+    
+        headers = driver.find_elements(By.CLASS_NAME, "card-header")
+        responsible_header = None
+        for header in headers:
+            if "Текущий ответственный" in header.text:
+                responsible_header = header
+                break
+    
+&gt;       assert responsible_header is not None, "Должна быть карточка 'Текущий ответственный'"
+E       AssertionError: Должна быть карточка 'Текущий ответственный'
+E       assert None is not None
+
+app/solution.py:51: AssertionError</failure></testcase></testsuite></testsuites>
