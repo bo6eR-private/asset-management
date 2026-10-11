@@ -21,27 +21,41 @@ def driver():
 
 
 def test_page_title_is_correct(driver):
-    """Проверяет, что заголовок страницы 'Выдачи имущества'."""
+    """Проверяет заголовок страницы 'Выдачи имущества'."""
     driver.get(TEST_URL)
-    wait = WebDriverWait(driver, 10)
-    
-    h1 = wait.until(EC.presence_of_element_located((By.TAG_NAME, "h1")))
-    assert h1.text == "Выдачи имущества", f"Ожидался заголовок 'Выдачи имущества', а найден '{h1.text}'"
+
+    headings = driver.find_elements(By.TAG_NAME, "h1")
+    assert headings, "На странице отсутствует заголовок <h1>"
+
+    actual_title = headings[0].text.strip()
+    expected_title = "Выдачи имущества"
+
+    assert actual_title == expected_title, (
+        f"Ожидался заголовок '{expected_title}', "
+        f"а найден '{actual_title}'"
+    )
 
 
 def test_three_issues_displayed(driver):
     """Проверяет, что в таблице отображается 3 выдачи."""
     driver.get(TEST_URL)
-    wait = WebDriverWait(driver, 10)
-    
+
     rows = driver.find_elements(By.CSS_SELECTOR, "table tbody tr")
-    assert len(rows) == 3, f"Ожидалось 3 выдачи, а найдено {len(rows)}"
+    assert len(rows) == 3, (
+        f"Ожидалось 3 выдачи, а найдено {len(rows)}"
+    )
 
 
 def test_create_issue_button_exists(driver):
-    """Проверяет наличие кнопки '+ Оформить выдачу'."""
+    """Проверяет наличие ссылки '+ Оформить выдачу'."""
     driver.get(TEST_URL)
-    wait = WebDriverWait(driver, 10)
-    
-    create_button = driver.find_element(By.XPATH, "//a[contains(text(), 'Оформить выдачу')]")
-    assert create_button.is_displayed(), "Кнопка '+ Оформить выдачу' должна быть отображена"
+
+    buttons = driver.find_elements(
+        By.XPATH,
+        "//a[contains(normalize-space(.), 'Оформить выдачу')]"
+    )
+
+    assert buttons, "Ссылка «Оформить выдачу» отсутствует на странице"
+    assert buttons[0].is_displayed(), (
+        "Ссылка «Оформить выдачу» не отображается"
+    )
