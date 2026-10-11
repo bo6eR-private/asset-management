@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Добавление сотрудника — Учёт имущества</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: #f8f9fa;
+      }
+      .d-flex {
+        display: flex;
+      }
+      .sidebar {
+        width: 250px;
+        min-height: 100vh;
+        background: #212529;
+        padding: 1rem;
+      }
+      .text-white {
+        color: #fff;
+      }
+      .text-secondary {
+        color: #6c757d;
+      }
+      .nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .nav-link {
+        color: #adb5bd;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+      }
+      .nav-link:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .nav-link.active {
+        color: #fff;
+        background: #0d6efd;
+      }
+      .main-content {
+        padding: 2rem;
+        flex: 1;
+      }
+      .mb-4 {
+        margin-bottom: 1.5rem;
+      }
+      .mb-3 {
+        margin-bottom: 1rem;
+      }
+      .mb-0 {
+        margin-bottom: 0;
+      }
+      .mt-3 {
+        margin-top: 1rem;
+      }
+      .text-muted {
+        color: #6c757d;
+      }
+      .text-decoration-none {
+        text-decoration: none;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid #dee2e6;
+        border-radius: 0.375rem;
+        margin-bottom: 1rem;
+      }
+      .card-body {
+        padding: 1.5rem;
+      }
+      .card-header {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #dee2e6;
+        background: #f8f9fa;
+        font-weight: 600;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -0.5rem;
+      }
+      .col-md-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+        padding: 0.5rem;
+      }
+      .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 0.5rem;
+      }
+      .col-md-8 {
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+        padding: 0.5rem;
+      }
+      .col-lg-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+        padding: 0.5rem;
+      }
+      .col-lg-8 {
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+        padding: 0.5rem;
+      }
+      .btn {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        cursor: pointer;
+        text-align: center;
+      }
+      .btn-primary {
+        background: #0d6efd;
+        color: #fff;
+        border-color: #0d6efd;
+      }
+      .btn-outline-secondary {
+        color: #6c757d;
+        border-color: #6c757d;
+        background: transparent;
+      }
+      .form-control {
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+      }
+      .form-select {
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        background: #fff;
+      }
+      .form-label {
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+      .shadow-sm {
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+      }
+      .g-4 {
+        gap: 1.5rem;
+      }
+      .gap-2 {
+        gap: 0.5rem;
+      }
+      .d-flex {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="d-flex">
+      <aside class="sidebar">
+        <div style="padding: 1rem">
+          <h4 class="text-white">Учёт имущества</h4>
+          <small class="text-secondary"> Панель администратора </small>
+        </div>
+        <nav class="nav">
+          <a href="#" class="nav-link"> Панель управления </a>
+          <a href="#" class="nav-link"> Имущество </a>
+          <a href="#" class="nav-link active"> Сотрудники </a>
+          <a href="#" class="nav-link"> Выдачи </a>
+          <a href="#" class="nav-link"> Отчёты </a>
+        </nav>
+      </aside>
+      <main class="main-content">
+        <div class="mb-4">
+          <a href="#" class="text-decoration-none">← Назад к сотрудникам</a>
+          <h1 class="mt-3">Добавление сотрудника</h1>
+          <p class="text-muted">Добавление нового сотрудника в систему</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-8">
+            <div class="card shadow-sm">
+              <div class="card-header">Основная информация</div>
+              <div class="card-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="fullName" class="form-label"> ФИО </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="fullName"
+                      placeholder="Например, Иванов Иван Иванович"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="position" class="form-label"> Должность </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="position"
+                      placeholder="Например, Программист"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="department" class="form-label">
+                      Подразделение
+                    </label>
+                    <select class="form-select" id="department" required>
+                      <option value="" selected disabled>
+                        Выберите подразделение
+                      </option>
+                      <option value="it">IT-отдел</option>
+                      <option value="accounting">Бухгалтерия</option>
+                      <option value="hr">Отдел кадров</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="phone" class="form-label"> Телефон </label>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      id="phone"
+                      placeholder="+7 900 000-00-00"
+                      required
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label for="email" class="form-label"> Email </label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      placeholder="employee@example.com"
+                      required
+                    />
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                      Добавить сотрудника
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow-sm">
+              <div class="card-header">После добавления</div>
+              <div class="card-body">
+                <p class="mb-3">
+                  Новый сотрудник будет добавлен в список сотрудников
+                  организации.
+                </p>
+                <div class="mb-3">
+                  <div class="text-muted mb-1">Имущество на руках</div>
+                  <div>0</div>
+                </div>
+                <div>
+                  <div class="text-muted mb-1">Ответственный</div>
+                  <div>
+                    Сотрудник будет доступен для оформления выдачи имущества.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

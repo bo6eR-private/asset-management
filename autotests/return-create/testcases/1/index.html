@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Оформление возврата — Учёт имущества</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: #f8f9fa;
+      }
+      .d-flex {
+        display: flex;
+      }
+      .sidebar {
+        width: 250px;
+        min-height: 100vh;
+        background: #212529;
+        padding: 1rem;
+      }
+      .text-white {
+        color: #fff;
+      }
+      .text-secondary {
+        color: #6c757d;
+      }
+      .nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .nav-link {
+        color: #adb5bd;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+      }
+      .nav-link:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .nav-link.active {
+        color: #fff;
+        background: #0d6efd;
+      }
+      .main-content {
+        padding: 2rem;
+        flex: 1;
+      }
+      .mb-4 {
+        margin-bottom: 1.5rem;
+      }
+      .mb-3 {
+        margin-bottom: 1rem;
+      }
+      .mb-0 {
+        margin-bottom: 0;
+      }
+      .mt-3 {
+        margin-top: 1rem;
+      }
+      .text-muted {
+        color: #6c757d;
+      }
+      .text-decoration-none {
+        text-decoration: none;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid #dee2e6;
+        border-radius: 0.375rem;
+        margin-bottom: 1rem;
+      }
+      .card-body {
+        padding: 1.5rem;
+      }
+      .card-header {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #dee2e6;
+        background: #f8f9fa;
+        font-weight: 600;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -0.5rem;
+      }
+      .col-lg-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+        padding: 0.5rem;
+      }
+      .col-lg-8 {
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+        padding: 0.5rem;
+      }
+      .btn {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        cursor: pointer;
+        text-align: center;
+      }
+      .btn-success {
+        background: #198754;
+        color: #fff;
+        border-color: #198754;
+      }
+      .btn-outline-secondary {
+        color: #6c757d;
+        border-color: #6c757d;
+        background: transparent;
+      }
+      .form-control {
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+      }
+      .form-select {
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        background: #fff;
+      }
+      .form-label {
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+      .shadow-sm {
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+      }
+      .gap-2 {
+        gap: 0.5rem;
+      }
+      .d-flex {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="d-flex">
+      <aside class="sidebar">
+        <div style="padding: 1rem">
+          <h4 class="text-white">Учёт имущества</h4>
+          <small class="text-secondary"> Панель администратора </small>
+        </div>
+        <nav class="nav">
+          <a href="#" class="nav-link"> Панель управления </a>
+          <a href="#" class="nav-link"> Имущество </a>
+          <a href="#" class="nav-link"> Сотрудники </a>
+          <a href="#" class="nav-link active"> Выдачи </a>
+          <a href="#" class="nav-link"> Отчёты </a>
+        </nav>
+      </aside>
+      <main class="main-content">
+        <div class="mb-4">
+          <a href="#" class="text-decoration-none">← Назад к выдачам</a>
+          <p class="text-muted">Возврат материальной ценности от сотрудника</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="card shadow-sm">
+              <div class="card-header">Данные возврата</div>
+              <div class="card-body">
+                <form>
+                  <div class="mb-3">
+                    <label class="form-label"> Сотрудник </label>
+                    <select class="form-select">
+                      <option selected>Иванов Иван Иванович</option>
+                      <option>Петров Пётр Петрович</option>
+                      <option>Сидоров Алексей Сергеевич</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label"> Материальная ценность </label>
+                    <select class="form-select">
+                      <option selected>INV-0002 — Dell UltraSharp</option>
+                      <option>INV-0005 — HP ProBook</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label"> Дата возврата </label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      value="2026-09-27"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label"> Состояние при возврате </label>
+                    <select class="form-select">
+                      <option selected>Исправно</option>
+                      <option>Повреждено</option>
+                      <option>Требует ремонта</option>
+                    </select>
+                  </div>
+                  <div class="mb-4">
+                    <label class="form-label"> Комментарий </label>
+                    <textarea
+                      class="form-control"
+                      rows="4"
+                      placeholder="Укажите состояние имущества или замечания"
+                    ></textarea>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success">
+                      Оформить возврат
+                    </button>
+                    <a href="#" class="btn btn-outline-secondary">Отмена</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card shadow-sm">
+              <div class="card-header">После возврата</div>
+              <div class="card-body">
+                <ul>
+                  <li>статус имущества изменяется;</li>
+                  <li>имущество снимается с подотчёта сотрудника;</li>
+                  <li>фиксируется состояние имущества;</li>
+                  <li>операция записывается в историю.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
